@@ -15,7 +15,7 @@ const Skill = () => {
       {SkillList.map((skill) => (
         <WrapItem key={skill.id}>
           <SkillCard
-            imageUrl={skill.imageUrl}
+            imageSrc={skill.imageUrl}
             imageTitle={skill.imageTitle}
             skillText={skill.text}
           />
