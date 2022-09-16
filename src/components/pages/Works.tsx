@@ -1,6 +1,7 @@
 import { Wrap, WrapItem } from "@chakra-ui/layout";
 import React, { memo } from "react";
 import WorkCard from "../organisms/layout/work/WorkCard";
+import { WorkList } from "../organisms/layout/work/WorkList";
 
 const Works = memo(() => {
   return (
@@ -11,9 +12,15 @@ const Works = memo(() => {
       justify="space-around"
       pt={{ base: "4.5em", md: "5em" }}
     >
-      <WrapItem>
-        <WorkCard />
-      </WrapItem>
+      {WorkList.map((work) => (
+        <WrapItem key={work.id}>
+          <WorkCard
+            imageSrc={work.imageSrc}
+            imageTitle={work.imageTitle}
+            workText={work.text}
+          />
+        </WrapItem>
+      ))}
     </Wrap>
   );
 });
