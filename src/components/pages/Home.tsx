@@ -15,7 +15,7 @@ const Home = memo(() => {
         alignItems="center"
         justify="center"
       >
-        <Box as="h1" display="block" fontSize="lg" pt={4}>
+        <Box as="h2" display="block" fontSize="lg" pt={4}>
           <Text fontStyle="oblique">Welcome to</Text>
           <Text
             fontSize={{ base: "3rem", md: "3.5rem" }}
@@ -43,9 +43,12 @@ const Home = memo(() => {
       <VStack>
         <Text mt={4}>エンジニアを目指して勉強中です。</Text>
         <Flex pt={4}>
-          <CustomIcon mr={5} icon="twitter" />
-          <CustomIcon mr={5} icon="github" />
-          <CustomIcon icon="mail" />
+          <CustomIcon
+            mr={5}
+            icon="twitter"
+            url="https://twitter.com/fanalvn16"
+          />
+          <CustomIcon icon="github" url="https://github.com/df0821" />
         </Flex>
       </VStack>
     </Box>
