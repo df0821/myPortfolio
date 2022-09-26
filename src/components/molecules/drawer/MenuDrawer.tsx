@@ -1,11 +1,11 @@
 import {
-  Button,
   Drawer,
   DrawerBody,
   DrawerContent,
   DrawerOverlay,
 } from "@chakra-ui/react";
 import React, { FC, memo } from "react";
+import DrawerButton from "../../atoms/button/DrawerButton";
 
 type Props = {
   onClose: () => void;
@@ -31,38 +31,10 @@ const MenuDrawer: FC<Props> = memo((props) => {
       <DrawerOverlay>
         <DrawerContent>
           <DrawerBody p={0} bg="#FEF5ED">
-            <Button
-              onClick={onClickHome}
-              w="100%"
-              bg="#D3E4CD"
-              _hover={{ bg: "#ADC2A9" }}
-            >
-              Home
-            </Button>
-            <Button
-              onClick={onClickSkill}
-              w="100%"
-              bg="#D3E4CD"
-              _hover={{ bg: "#ADC2A9" }}
-            >
-              Skill
-            </Button>
-            <Button
-              onClick={onClickWork}
-              w="100%"
-              bg="#D3E4CD"
-              _hover={{ bg: "#ADC2A9" }}
-            >
-              Work
-            </Button>
-            <Button
-              onClick={onClickContact}
-              w="100%"
-              bg="#D3E4CD"
-              _hover={{ bg: "#ADC2A9" }}
-            >
-              Contact
-            </Button>
+            <DrawerButton onClick={onClickHome} content="Home" />
+            <DrawerButton onClick={onClickSkill} content="Skill" />
+            <DrawerButton onClick={onClickWork} content="Work" />
+            <DrawerButton onClick={onClickContact} content="Contact" />
           </DrawerBody>
         </DrawerContent>
       </DrawerOverlay>

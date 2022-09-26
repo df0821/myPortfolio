@@ -6,15 +6,10 @@ import { SkillList } from "../organisms/layout/skill/SkillList";
 
 const Skill = () => {
   return (
-    <VStack as="main" pt={{ base: "4.5em", md: "5em" }}>
+    <VStack as="main" pt={{ base: "4.5em", md: "5em" }} minHeight="100vh">
       <PageTItle title="Skill" />
 
-      <Wrap
-        as="section"
-        minHeight="100vh"
-        p={{ base: 4, md: 10 }}
-        justify="space-around"
-      >
+      <Wrap as="section" p={{ base: 4, md: 10 }} justify="space-around">
         {SkillList.map((skill) => (
           <WrapItem key={skill.id}>
             <SkillCard

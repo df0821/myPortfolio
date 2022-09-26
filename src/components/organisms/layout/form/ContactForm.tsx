@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
 import useMessage from "../../../../hooks/useMessage";
-import FormTable from "../../../molecules/form/FormTable";
+import FormTable from "./FormTable";
 import PageTItle from "../../../atoms/title/PageTItle";
 
 type ValueType = {
@@ -18,15 +18,14 @@ const ContactForm = () => {
   //defined hooks
   const form = useRef(null!);
   const { showMessage } = useMessage();
-  const { reset } = useForm<ValueType>({
+  const { reset, handleSubmit } = useForm<ValueType>({
+    defaultValues: { name: "", email: "", subject: "", message: "" },
     mode: "all",
     criteriaMode: "all",
   });
 
   //send Email
-  const SendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const SendEmail = (data: ValueType) => {
     const userID = process.env.REACT_APP_PUBLIC_KEY;
     const serviceID = process.env.REACT_APP_SERVICE_ID;
     const templateID = process.env.REACT_APP_TEMPLATE_ID;
@@ -50,7 +49,7 @@ const ContactForm = () => {
       </VStack>
 
       <Box as="section">
-        <form ref={form} onSubmit={SendEmail}>
+        <form ref={form} onSubmit={handleSubmit(SendEmail)}>
           <FormTable />
         </form>
       </Box>

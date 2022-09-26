@@ -1,13 +1,8 @@
 import { Box } from "@chakra-ui/layout";
-import {
-  Button,
-  FormControl,
-  FormErrorMessage,
-  Input,
-  Textarea,
-} from "@chakra-ui/react";
+import { Button, Input, Textarea } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "react-hook-form";
+import ControlForm from "../../../molecules/form/ControlForm";
 
 type ValueType = {
   name: string;
@@ -21,13 +16,17 @@ const FormTable = () => {
     register,
     formState: { errors, isSubmitting, isDirty, isValid },
   } = useForm<ValueType>({
+    defaultValues: { name: "", email: "", subject: "", message: "" },
     mode: "all",
     criteriaMode: "all",
   });
 
   return (
     <Box as="section" w={{ base: "90%", md: "80%" }} m="auto">
-      <FormControl isInvalid={errors.name ? true : false} borderColor="#899689">
+      <ControlForm
+        isInvalid={errors.name ? true : false}
+        message={errors.name && errors.name.message}
+      >
         <Input
           placeholder="お名前(必須)"
           {...register("name", {
@@ -35,14 +34,11 @@ const FormTable = () => {
           })}
           mt={2}
         />
-        <FormErrorMessage>
-          {errors.name && errors.name.message}
-        </FormErrorMessage>
-      </FormControl>
+      </ControlForm>
 
-      <FormControl
+      <ControlForm
         isInvalid={errors.email ? true : false}
-        borderColor="#899689"
+        message={errors.email && errors.email.message}
       >
         <Input
           mt={2}
@@ -57,14 +53,11 @@ const FormTable = () => {
             },
           })}
         />
-        <FormErrorMessage>
-          {errors.email && errors.email.message}
-        </FormErrorMessage>
-      </FormControl>
+      </ControlForm>
 
-      <FormControl
+      <ControlForm
         isInvalid={errors.subject ? true : false}
-        borderColor="#899689"
+        message={errors.subject && errors.subject.message}
       >
         <Input
           mt={2}
@@ -73,14 +66,11 @@ const FormTable = () => {
             required: "必須項目です。",
           })}
         />
-        <FormErrorMessage>
-          {errors.subject && errors.subject.message}
-        </FormErrorMessage>
-      </FormControl>
+      </ControlForm>
 
-      <FormControl
+      <ControlForm
         isInvalid={errors.message ? true : false}
-        borderColor="#899689"
+        message={errors.message && errors.message.message}
       >
         <Textarea
           mt={2}
@@ -94,10 +84,7 @@ const FormTable = () => {
             },
           })}
         />
-        <FormErrorMessage>
-          {errors.message && errors.message.message}
-        </FormErrorMessage>
-      </FormControl>
+      </ControlForm>
 
       <Box>
         <Button

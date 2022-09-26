@@ -1,8 +1,9 @@
 import { Box, Flex, Heading, useDisclosure } from "@chakra-ui/react";
 import React, { FC, memo, useCallback } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import MenuIconButton from "../../atoms/button/MenuIconButton";
-import MenuDrawer from "../../molecules/drawer/MenuDrawer";
+import MenuIconButton from "../../../atoms/button/MenuIconButton";
+import MenuDrawer from "../../../molecules/drawer/MenuDrawer";
+import HeaderMenu from "./HeaderMenu";
 
 const Header: FC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -48,27 +49,7 @@ const Header: FC = memo(() => {
             D.F's Portfolio
           </Heading>
         </Flex>
-        <Flex
-          align="center"
-          fontSize="md"
-          pr={4}
-          flexGrow={2}
-          display={{ base: "none", md: "flex" }}
-          justify="flex-end"
-        >
-          <Box pr={4}>
-            <Link to="/">Home</Link>
-          </Box>
-          <Box pr={4}>
-            <Link to="/skill">Skill</Link>
-          </Box>
-          <Box pr={4}>
-            <Link to="/work"> Work</Link>
-          </Box>
-          <Box pr={4}>
-            <Link to="/contact">Contact</Link>
-          </Box>
-        </Flex>
+        <HeaderMenu />
         <MenuIconButton onOpen={onOpen} />
       </Flex>
       <MenuDrawer

@@ -1,26 +1,15 @@
 import React from "react";
-import Contact from "../components/pages/Contact";
-import Home from "../components/pages/Home";
-import Skill from "../components/pages/Skill";
-import Works from "../components/pages/Works";
+import { Route, Routes } from "react-router-dom";
+import ContentRoutes from "./ContentRoutes";
 
-const HomeRoutes = [
-  {
-    path: "/",
-    children: <Home />,
-  },
-  {
-    path: "/skill",
-    children: <Skill />,
-  },
-  {
-    path: "/work",
-    children: <Works />,
-  },
-  {
-    path: "/contact",
-    children: <Contact />,
-  },
-];
+const HomeRoutes = () => {
+  return (
+    <Routes>
+      {ContentRoutes.map((route) => (
+        <Route key={route.id} path={route.path} element={route.children} />
+      ))}
+    </Routes>
+  );
+};
 
 export default HomeRoutes;
