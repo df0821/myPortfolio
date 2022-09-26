@@ -16,9 +16,9 @@ type ValueType = {
 
 const ContactForm = () => {
   //defined hooks
-  const form = useRef(null!);
+  const form = useRef<HTMLFormElement>(null!);
   const { showMessage } = useMessage();
-  const { reset, handleSubmit } = useForm<ValueType>({
+  const { handleSubmit } = useForm<ValueType>({
     defaultValues: { name: "", email: "", subject: "", message: "" },
     mode: "all",
     criteriaMode: "all",
@@ -35,7 +35,7 @@ const ContactForm = () => {
       .then((res) => {
         if (res.status === 200) {
           showMessage({ title: "送信に成功しました", status: "success" });
-          reset();
+          form.current.reset();
         } else {
           showMessage({ title: "送信に失敗しました", status: "error" });
         }
