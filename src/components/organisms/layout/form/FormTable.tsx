@@ -28,11 +28,11 @@ const FormTable = () => {
         message={errors.name && errors.name.message}
       >
         <Input
+          mt={2}
           placeholder="お名前(必須)"
           {...register("name", {
             required: "必須項目です。",
           })}
-          mt={2}
         />
       </ControlForm>
 
