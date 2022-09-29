@@ -1,5 +1,6 @@
 import { VStack, Wrap, WrapItem } from "@chakra-ui/layout";
 import React from "react";
+
 import PageTItle from "../atoms/title/PageTItle";
 import SkillCard from "../organisms/layout/skill/SkillCard";
 import { SkillList } from "../organisms/layout/skill/SkillList";

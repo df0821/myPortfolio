@@ -2,25 +2,14 @@ import { Box, Stack, Text } from "@chakra-ui/layout";
 import { Image } from "@chakra-ui/react";
 import React, { memo, FC } from "react";
 
-type Props = {
-  imageSrc: string;
-  imageTitle: string;
-  workText: string;
-};
+import { CardProps } from "../../../../types/CardType";
+import CardFrame from "../../../atoms/card/CardFrame";
 
-const WorkCard: FC<Props> = memo((props) => {
+const WorkCard: FC<CardProps> = memo((props) => {
   const { imageSrc, imageTitle, workText } = props;
 
   return (
-    <Box
-      w={{ base: "320px", md: "640px" }}
-      h={{ base: "300px", md: "280px" }}
-      bg="#D3E4CD"
-      borderRadius="10px"
-      shadow="md"
-      p={4}
-      mb={8}
-    >
+    <CardFrame>
       <Stack textAlign="left">
         <Image
           src={imageSrc}
@@ -42,7 +31,7 @@ const WorkCard: FC<Props> = memo((props) => {
           </Text>
         </Box>
       </Stack>
-    </Box>
+    </CardFrame>
   );
 });
 

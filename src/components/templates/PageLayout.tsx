@@ -1,10 +1,10 @@
-import React from "react";
+import React, { memo } from "react";
 
 import HomeRoutes from "../../router/HomeRoutes";
 import Footer from "../organisms/layout/footer/Footer";
 import Header from "../organisms/layout/header/Header";
 
-const PageLayout = () => {
+const PageLayout = memo(() => {
   return (
     <>
       <Header />
@@ -12,6 +12,6 @@ const PageLayout = () => {
       <Footer />
     </>
   );
-};
+});
 
 export default PageLayout;
